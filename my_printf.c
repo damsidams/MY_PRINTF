@@ -6,24 +6,27 @@
 */
 
 #include <stdarg.h>
-#include "include/my_print.h"
+#include "include/my.h"
 
 void cases(char c, va_list list, int *counter)
 {
-    void (*fun_ptr_arr[128])(char, va_list, int *) = {0};
+    void (*fun_ptr_arr[128])(va_list) = {0};
 
-    (*fun_ptr_arr['d'])(char, va_list, int *) = my_put_nbr;
-    (*fun_ptr_arr['i'])(char, va_list, int *) = my_put_nbr;
-    (*fun_ptr_arr['s'])(char, va_list, int *) = my_put_str;
-    (*fun_ptr_arr['c'])(char, va_list, int *) = my_putchar;
-    (*fun_ptr_arr['%'])(char, va_list, int *) = my_putchar;
+    (*fun_ptr_arr['d']) = my_put_nbr;
+    (*fun_ptr_arr['i']) = my_put_nbr;
+    (*fun_ptr_arr['c']) = my_putchar;
+    (*fun_ptr_arr['%']) = my_putchar;
+    (*fun_ptr_arr['s']) = my_putstr;
 
-    if ((*fun_ptr_arr[c]) != 0)
+    if ((*fun_ptr_arr[c]) != 0 && c != 115)
+        (*counter) = (*fun_ptr_arr[c])(va_arg(list, int));
+    else if ((*fun_ptr_arr[c]) != 0)
         (*counter) = (*fun_ptr_arr[c])(va_arg(list, int));
     else {
         my_putchar(c);
         (*counter) ++;
     }
+}
         
 
 
