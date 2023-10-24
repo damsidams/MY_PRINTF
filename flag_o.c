@@ -5,6 +5,8 @@
 ** case of flag o
 */
 
+#include "include/my.h"
+
 int flag_o(int i)
 {
     int rest = 0;
@@ -15,5 +17,5 @@ int flag_o(int i)
     rest = i % 8;
     quot = (i - rest) / 8;
     my_put_nbr(rest);
-    return 1 + flag_o(quot);    
+    return 1 + flag_o(quot);
 }
