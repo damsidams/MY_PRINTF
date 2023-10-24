@@ -24,3 +24,8 @@ int flag_f(float nb)
     nb_of_char += my_put_nbr(nb + 1) + 1;
     return nb_of_char;
 }
+
+int flag_s(char *str)
+{
+    return my_putstr(str);
+}
