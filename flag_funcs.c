@@ -22,6 +22,5 @@ int flag_f(float nb)
     nb = nb * 1000000;
     my_putchar('.');
     nb_of_char += my_put_nbr(nb + 1) + 1;
-    printf("Here is the nb returned %d\n", nb_of_char);
     return nb_of_char;
 }
