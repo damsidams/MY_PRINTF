@@ -19,4 +19,5 @@ unsigned int flag_o(unsigned int i);
 unsigned int flag_u(unsigned int nb);
 unsigned int flag_x(unsigned int i);
 unsigned int flag_xx(unsigned int i);
+int nb_size(int nb, int nb_char_print);
 #endif /* MY_H */
