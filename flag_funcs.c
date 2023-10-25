@@ -7,7 +7,17 @@
 
 #include "include/my.h"
 
-static float is_neg(float nb, int *nb_of_char, int *i)
+static float is_neg(float nb, int *nb_of_char)
+{
+    if (nb < 0) {
+        my_putchar('-');
+        nb *= -1;
+        *nb_of_char += 1;
+    }
+    return nb;
+}
+
+static float flag_f_assist(float nb, int *nb_of_char, int *i)
 {
     if (nb < 0) {
         my_putchar('-');
@@ -27,7 +37,7 @@ int flag_f(double nb)
     int i = 0;
     int new_nb = 0;
 
-    nb = is_neg(nb, &nb_of_char, &i);
+    nb = flag_f_assist(nb, &nb_of_char, &i);
     if (i == nb)
         return my_put_nbr(nb);
     nb_of_char += my_put_nbr(i - 1);
@@ -67,7 +77,9 @@ int flag_e(float nb)
 {
     int	base = 0;
     char pos = '+';
+    int is_it_neg = 0;
 
+    nb = is_neg(nb, &is_it_neg);
     while (nb > 10) {
         nb /= 10;
         base ++;
@@ -77,5 +89,64 @@ int flag_e(float nb)
         nb *= 10;
         base ++;
     }
-    return flag_e_printer(nb, pos, base) + 4;
+    return flag_e_printer(nb, pos, base) + 4 + is_it_neg;
 }
+
+static int flag_ee_printer(float nb, char pos, int base)
+{
+    int nb_of_char = 0;
+
+    nb_of_char = flag_f(nb);
+    my_putchar('E');
+    my_putchar(pos);
+    if (base < 10)
+        my_putchar('0');
+    my_put_nbr(base);
+    return nb_of_char;
+}
+
+int flag_ee(float nb)
+{
+    int base = 0;
+    char pos = '+';
+    int is_it_neg = 0;
+
+    nb = is_neg(nb, &is_it_neg);
+    while (nb > 10) {
+        nb /= 10;
+        base ++;
+    }
+    while (nb < 1) {
+        pos = '-';
+        nb *= 10;
+        base ++;
+    }
+    return flag_e_printer(nb, pos, base) + 4 + is_it_neg;
+}
+
+//need to add the inf output
+int flag_ff(double nb)
+{
+    int nb_of_char = 0;
+    int i = 0;
+    int new_nb = 0;
+
+    nb = flag_f_assist(nb, &nb_of_char, &i);
+    if (i == nb)
+        return my_put_nbr(nb);
+    nb_of_char += my_put_nbr(i - 1);
+    nb = nb - (i - 1);
+    i = 0;
+    my_putchar('.');
+    while (i < 6) {
+        nb = nb * 10;
+        for (int j = 0; j < nb; j++)
+            new_nb = j;
+        nb_of_char += my_put_nbr(new_nb);
+        nb -= new_nb;
+        i++;
+    }
+    return nb_of_char + 1;
+}
+
+/*full of non-static functions*/
