@@ -8,31 +8,42 @@
 #include <stdarg.h>
 #include "include/my.h"
 
+void print_int(va_list list, int *counter)
+{
+    (*counter) = (*counter) + my_put_nbr(va_arg(list, int));
+}
+
+void print_string(va_list list, int *counter)
+{
+    (*counter) = (*counter) + my_putstr(va_arg(list, char *));
+}
+
+void print_char(va_list list, int *counter)
+{
+    my_putchar(va_arg(list, int));
+    (*counter) = (*counter) + 1;
+}
+
+void print_percent(va_list list, int *counter)
+{
+    (*counter) = (*counter) + 1;                                                                     
+    my_putchar('%');
+}
+
 void cases(char c, va_list list, int *counter)
 {
-    switch (c){
-    case 'd':
-    case 'i':
-        (*counter) = (*counter)	+ my_put_nbr(va_arg(list, int));
-        break;
-    case 's':
-        (*counter) = (*counter)	+ my_putstr(va_arg(list, char *));
-        break;
-    case 'c':
-        my_putchar(va_arg(list, int));
-        (*counter) = (*counter)	+ 1;
-        break;
-    case '%':
-        (*counter) = (*counter) + 1;
-        my_putchar('%');
-    break;
-    default:
-        my_putchar('%');
-        my_putchar(c);
+    void (*functions[])(va_list list, int *counter) =
+        {print_int, print_string,
+        print_char, print_percent};
+    char *base = "dsc%";
+    for (int i = 0; base[i] != '\0'; i++){
+        if (base[i] == c){
+            functions[i](list, counter);
+        }
     }
 }
 
-int printf(const char *format, ...)
+int my_printf(const char *format, ...)
 {
     va_list list;
     int counter;
@@ -48,5 +59,6 @@ int printf(const char *format, ...)
         }
         format++;
     }
+    va_end(list);
     return counter;
 }

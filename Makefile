@@ -13,6 +13,7 @@ SRC     =       my_putchar.c    \
 		flag_funcs2.c	\
 		flag_x.c	\
 		flag_xx.c	\
+		my_printf.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -31,7 +32,6 @@ fclean:	clean
 	rm -f $(NAME)
 
 $(NAME):	$(OBJ)
-	gcc -c $(SRC) -I $(LIB)
 	ar rc $(NAME) $(OBJ)
 	$(clean)
 	$(fclean)
