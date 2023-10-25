@@ -7,11 +7,11 @@
 
 #include "include/my.h"
 
-int flag_o(int i)
+unsigned int flag_o(unsigned int i)
 {
-    int rest = 0;
-    int quot = 0;
-    int nbr = 0;
+    unsigned int rest = 0;
+    unsigned int quot = 0;
+    unsigned int nbr = 0;
 
     if (i <= 0)
         return 0;
