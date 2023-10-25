@@ -7,7 +7,7 @@
 
 #include "include/my.h"
 
-void printing_part2(unsigned int i)
+static void printing_part2(unsigned int i)
 {
     switch (i){
     case 13:
@@ -24,7 +24,7 @@ void printing_part2(unsigned int i)
     }
 }
 
-void printing_part1(unsigned int i)
+static void printing_part1(unsigned int i)
 {
     switch (i){
     case 10:
@@ -41,7 +41,7 @@ void printing_part1(unsigned int i)
         printing_part2(i);
 }
 
-int flag_x(unsigned int i)
+unsigned int flag_x(unsigned int i)
 {
     unsigned int rest = 0;
     unsigned int quot = 0;

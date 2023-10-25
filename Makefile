@@ -9,6 +9,10 @@ SRC     =       my_putchar.c    \
                 my_put_nbr.c    \
                 my_putstr.c     \
                 my_printf.c     \
+		flag_funcs.c	\
+		flag_funcs2.c	\
+		flag_x.c	\
+		flag_X.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
