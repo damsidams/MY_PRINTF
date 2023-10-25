@@ -32,7 +32,7 @@ void cases(char c, va_list list, int *counter)
     }
 }
 
-int mini_printf(const char *format, ...)
+int printf(const char *format, ...)
 {
     va_list list;
     int counter;

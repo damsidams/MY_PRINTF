@@ -16,5 +16,5 @@ int flag_e(float nb);
 unsigned int flag_o(unsigned int i);
 unsigned int flag_u(unsigned int nb);
 unsigned int flag_x(unsigned int i);
-unsigned int flag_X(unsigned int i);
+unsigned int flag_xx(unsigned int i);
 #endif /* MY_H */

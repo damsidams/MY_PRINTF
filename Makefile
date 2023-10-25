@@ -12,7 +12,7 @@ SRC     =       my_putchar.c    \
 		flag_funcs.c	\
 		flag_funcs2.c	\
 		flag_x.c	\
-		flag_X.c	\
+		flag_xx.c	\
 
 OBJ	=	$(SRC:.c=.o)
 

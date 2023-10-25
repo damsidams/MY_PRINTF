@@ -32,7 +32,6 @@ unsigned int flag_u(unsigned int nb)
     nb_char_print = print_nb(nb, nb_char_print);
     return nb_char_print;
 }
-/* end of flag u function */
 
 unsigned int flag_o(unsigned int i)
 {
