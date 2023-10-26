@@ -7,7 +7,7 @@
 
 #include "include/my.h"
 
-static float is_neg(float nb, int *nb_of_char)
+static float is_neg(double nb, int *nb_of_char)
 {
     if (nb < 0) {
         my_putchar('-');
@@ -24,6 +24,7 @@ static float flag_f_assist(float nb, int *nb_of_char)
         nb *= -1;
         *nb_of_char += 1;
     }
+    //printf("This is nb after sign convertion %f\n", nb);
     return nb;
 }
 
@@ -32,9 +33,10 @@ int flag_f(double nb)
 {
     int nb_of_char = 0;
     int int_part = (int)nb;
-    float temp = 0;
+    double temp = 0;
 
     nb = flag_f_assist(nb, &nb_of_char);
+    int_part = (int)nb;
     if (int_part == nb)
         return my_put_nbr(nb);
     nb_of_char += my_put_nbr(int_part);
@@ -43,7 +45,7 @@ int flag_f(double nb)
     temp = nb * 10;
     int_part = (int)nb;
     if ((int)temp % 10 > 4)
-	int_part += 1;
+        int_part += 1;
     my_putchar('.');
     nb_of_char += my_put_nbr(int_part);
     return nb_of_char + 1;
@@ -115,7 +117,7 @@ int flag_ee(float nb)
         nb *= 10;
         base ++;
     }
-    return flag_e_printer(nb, pos, base) + 4 + is_it_neg;
+    return flag_ee_printer(nb, pos, base) + 4 + is_it_neg;
 }
 
 //need to add the inf output
@@ -126,8 +128,9 @@ int flag_ff(double nb)
     float temp = 0;
 
     nb = flag_f_assist(nb, &nb_of_char);
+    int_part = (int)nb;
     if (int_part == nb)
-	return my_put_nbr(nb);
+        return my_put_nbr(nb);
     nb_of_char += my_put_nbr(int_part);
     nb -= int_part;
     nb *= 1000000;

@@ -7,6 +7,7 @@
 
 #include <stdarg.h>
 #include "include/my.h"
+#include "include/p_function.h"
 
 static void print_int(va_list list, int *counter)
 {
@@ -50,24 +51,14 @@ static void print_hexx(va_list list, int *counter)
     (*counter) = (*counter) + flag_xx(va_arg(list, unsigned int));
 }
 
-static void print_float(va_list list, int *counter)
+static void print_thegflag(va_list list, int *counter)
 {
-    (*counter) = (*counter) + flag_f(va_arg(list, double));
+    (*counter) = (*counter) + flag_g(va_arg(list, double));
 }
 
-static void print_ffloat(va_list list, int *counter)
+static void print_theggflag(va_list list, int *counter)
 {
-    (*counter) = (*counter) + flag_ff(va_arg(list, double));
-}
-
-static void print_floatP(va_list list, int *counter)
-{
-    (*counter) = (*counter) + flag_e(va_arg(list, double));
-}
-
-static void print_ffloatP(va_list list, int *counter)
-{
-    (*counter) = (*counter) + flag_ee(va_arg(list, double));
+    (*counter) = (*counter) + flag_gg(va_arg(list, double));
 }
 
 void cases(char c, va_list list, int *counter)
@@ -77,8 +68,9 @@ void cases(char c, va_list list, int *counter)
          print_char, print_percent, print_int,
          print_octal, print_unsigned, print_hex,
          print_hexx, print_float, print_ffloat,
-         print_floatP, print_ffloatP};
-    char *base = "dsc%iouxXfFeE";
+         print_floatP, print_ffloatP, print_thegflag,
+         print_theggflag};
+    char *base = "dsc%iouxXfFeEgG";
 
     for (int i = 0; base[i] != '\0'; i++){
         if (base[i] == c){
