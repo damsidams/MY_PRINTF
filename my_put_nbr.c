@@ -15,9 +15,7 @@ static void print_nb(int nb, int *nb_char_print)
         print_nb(nb / 10, nb_char_print);
     res = (nb % 10) + '0';
     my_putchar(res);
-    //printf("This is the nb at start of res: %d\n", nb_char_print);
     *nb_char_print += 1;
-    //printf("This is the nb at the end of res: %d\n", nb_char_print);
 }
 
 int my_put_nbr(int nb)
