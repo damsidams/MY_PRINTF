@@ -21,38 +21,45 @@ int nb_size(int nb, int nb_char_print)
     return nb_char_print;
 }
 
-static float flag_f_assist(float nb, int *nb_of_char, int *i)
-{
-    if (nb < 0) {
-        nb *= -1;
-        *nb_of_char += 1;
-    }
-    while (*i < nb) {
-	*i += 1;
-    }
-    return nb;
-}
-
-static int flag_f_without_print(double nb)
+//does the same as printf but removes the useless zeros after the digits
+static int flag_f_no_print_zero(double nb)
 {
     int nb_of_char = 0;
-    int i = 0;
-    int new_nb = 0;
+    int int_part = (int)nb;
+    float temp = 0;
 
-    nb = flag_f_assist(nb, &nb_of_char, &i);
-    if (i == nb)
-        return nb_size(nb, 0);
-    nb_of_char += nb_size(i - 1, 0);
-    nb = nb - (i - 1);
-    i = 0;
-    while (i < 6) {
-	nb = nb * 10;
-        for (int j = 0; j < nb; j++)
-            new_nb = j;
-        nb_of_char += nb_size(new_nb, 0);
-        nb -= new_nb;
-        i++;
-    }
+    if (int_part == nb)
+        return my_put_nbr(nb);
+    nb_of_char += my_put_nbr(int_part);
+    my_putchar('.');
+    nb -= int_part;
+    nb *= 1000000;
+    temp = nb * 10;
+    int_part = (int)nb;
+    if ((int)temp % 10 > 4)
+        int_part += 1;
+    while (int_part % 10 == 0)
+        int_part /= 10;
+    nb_of_char += my_put_nbr(int_part);
     return nb_of_char + 1;
 }
 
+static int flag_e_no_print_zeros(float nb)
+{
+    return 0;
+}
+
+//looks like the e prints only the int part + 4 digits everytime except when there are zeros
+int flag_g(float nb)
+{
+    int nb_of_char = 0;
+    
+    if (nb < 0) {
+        my_putchar('-');
+        nb_of_char ++;
+        nb *= -1;
+    }
+    if (nb_size((int)nb, 0) < 6)
+        return flag_f_no_print_zero(nb) + nb_of_char;
+    
+}
