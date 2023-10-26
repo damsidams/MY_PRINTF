@@ -24,7 +24,6 @@ static float flag_f_assist(float nb, int *nb_of_char)
         nb *= -1;
         *nb_of_char += 1;
     }
-    //printf("This is nb after sign convertion %f\n", nb);
     return nb;
 }
 

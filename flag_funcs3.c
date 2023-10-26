@@ -118,7 +118,6 @@ static int flag_ee_for_gg(float nb)
 
     nb = is_neg(nb, &is_it_neg);
     while (nb > 10) {
-
         nb /= 10;
         base ++;
     }
