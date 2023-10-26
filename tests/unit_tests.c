@@ -154,3 +154,35 @@ Test(utile, flag_o2, .init=redirect_all_stdout)
     cr_assert_eq(res, 15);
     cr_assert_stdout_eq_str("Another test: 0");
 }
+
+//------------ flag u ----------//
+
+Test(utile, flag_u, .init=redirect_all_stdout)
+{
+    int res = my_printf("This is the first %u\n", 7789);
+    cr_assert_eq(res, 23);
+    cr_assert_stdout_eq_str("This is the first 7789\n");
+}
+
+Test(utile, flag_u2, .init=redirect_all_stdout)
+{
+    int res = my_printf("%s test: %u", "Another", 0);
+    cr_assert_eq(res, 15);
+    cr_assert_stdout_eq_str("Another test: 0");
+}
+
+//---------------- flag x ----------------//
+
+Test(utile, flag_x, .init=redirect_all_stdout)
+{
+    int res = my_printf("This is the first %x\n", 7789);
+    cr_assert_eq(res, 23);
+    cr_assert_stdout_eq_str("This is the first 1e6d\n");
+}
+
+Test(utile, flag_x2, .init=redirect_all_stdout)
+{
+    int res = my_printf("%s test: %x", "Another", 0);
+    cr_assert_eq(res, 15);
+    cr_assert_stdout_eq_str("Another test: 0");
+}
