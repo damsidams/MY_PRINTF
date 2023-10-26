@@ -31,6 +31,8 @@ clean:
 fclean:	clean
 	rm -f $(NAME)
 
+re:     fclean all
+
 $(NAME):	$(OBJ)
 	ar rc $(NAME) $(OBJ)
 	$(clean)
