@@ -76,7 +76,8 @@ void cases(char c, va_list list, int *counter)
         {print_int, print_string,
          print_char, print_percent, print_int,
          print_octal, print_unsigned, print_hex,
-         print_hexx};
+         print_hexx, print_float, print_ffloat,
+         print_floatP, print_ffloatP};
     char *base = "dsc%iouxXfFeE";
 
     for (int i = 0; base[i] != '\0'; i++){
