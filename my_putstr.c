@@ -15,5 +15,5 @@ int my_putstr(char const *str)
         my_putchar(str[i]);
         i++;
     }
-    return 0;
+    return i;
 }
