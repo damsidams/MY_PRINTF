@@ -8,68 +8,6 @@
 #include <stdarg.h>
 #include "include/my.h"
 
-static void print_int(va_list list, int *counter)
-{
-    (*counter) = (*counter) + my_put_nbr(va_arg(list, int));
-}
-
-static void print_string(va_list list, int *counter)
-{
-    (*counter) = (*counter) + my_putstr(va_arg(list, char *));
-}
-
-static void print_char(va_list list, int *counter)
-{
-    my_putchar(va_arg(list, int));
-    (*counter) = (*counter) + 1;
-}
-
-static void print_percent(va_list list, int *counter)
-{
-    (*counter) = (*counter) + 1;                                                                     
-    my_putchar('%');
-}
-
-static void print_octal(va_list list, int *counter)
-{
-    (*counter) = (*counter) + flag_o(va_arg(list, unsigned int));
-}
-
-static void print_unsigned(va_list list, int *counter)
-{
-    (*counter) = (*counter) + flag_u(va_arg(list, unsigned int));
-}
-
-static void print_hex(va_list list, int *counter)
-{
-    (*counter) = (*counter) + flag_x(va_arg(list, unsigned int));
-}
-
-static void print_hexx(va_list list, int *counter)
-{
-    (*counter) = (*counter) + flag_xx(va_arg(list, unsigned int));
-}
-
-static void print_float(va_list list, int *counter)
-{
-    (*counter) = (*counter) + flag_f(va_arg(list, double));
-}
-
-static void print_ffloat(va_list list, int *counter)
-{
-    (*counter) = (*counter) + flag_ff(va_arg(list, double));
-}
-
-static void print_floatP(va_list list, int *counter)
-{
-    (*counter) = (*counter) + flag_e(va_arg(list, double));
-}
-
-static void print_ffloatP(va_list list, int *counter)
-{
-    (*counter) = (*counter) + flag_ee(va_arg(list, double));
-}
-
 void cases(char c, va_list list, int *counter)
 {
     void (*functions[])(va_list list, int *counter) =

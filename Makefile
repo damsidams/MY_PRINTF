@@ -14,6 +14,9 @@ SRC     =       my_putchar.c    \
 		flag_x.c	\
 		flag_xx.c	\
 		my_printf.c	\
+		functions_to_point_on.c		\
+		functions_to_point_on2.c	\
+		functions_to_point_on3.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
