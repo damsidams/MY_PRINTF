@@ -7,7 +7,7 @@
 
 #include "include/my.h"
 
-static float is_neg(float nb, int *nb_of_char)
+static float is_neg(double nb, int *nb_of_char)
 {
     if (nb < 0) {
         my_putchar('-');
@@ -17,15 +17,12 @@ static float is_neg(float nb, int *nb_of_char)
     return nb;
 }
 
-static float flag_f_assist(float nb, int *nb_of_char, int *i)
+static float flag_f_assist(float nb, int *nb_of_char)
 {
     if (nb < 0) {
         my_putchar('-');
         nb *= -1;
         *nb_of_char += 1;
-    }
-    while (*i < nb) {
-        *i += 1;
     }
     return nb;
 }
@@ -34,24 +31,22 @@ static float flag_f_assist(float nb, int *nb_of_char, int *i)
 int flag_f(double nb)
 {
     int nb_of_char = 0;
-    int i = 0;
-    int new_nb = 0;
+    int int_part = (int)nb;
+    double temp = 0;
 
-    nb = flag_f_assist(nb, &nb_of_char, &i);
-    if (i == nb)
+    nb = flag_f_assist(nb, &nb_of_char);
+    int_part = (int)nb;
+    if (int_part == nb)
         return my_put_nbr(nb);
-    nb_of_char += my_put_nbr(i - 1);
-    nb = nb - (i - 1);
-    i = 0;
+    nb_of_char += my_put_nbr(int_part);
+    nb -= int_part;
+    nb *= 1000000;
+    temp = nb * 10;
+    int_part = (int)nb;
+    if ((int)temp % 10 > 4)
+        int_part += 1;
     my_putchar('.');
-    while (i < 6) {
-        nb = nb * 10;
-        for (int j = 0; j < nb; j++)
-            new_nb = j;
-        nb_of_char += my_put_nbr(new_nb);
-        nb -= new_nb;
-        i++;
-    }
+    nb_of_char += my_put_nbr(int_part);
     return nb_of_char + 1;
 }
 
@@ -121,31 +116,29 @@ int flag_ee(float nb)
         nb *= 10;
         base ++;
     }
-    return flag_e_printer(nb, pos, base) + 4 + is_it_neg;
+    return flag_ee_printer(nb, pos, base) + 4 + is_it_neg;
 }
 
 //need to add the inf output
 int flag_ff(double nb)
 {
     int nb_of_char = 0;
-    int i = 0;
-    int new_nb = 0;
+    int int_part = (int)nb;
+    float temp = 0;
 
-    nb = flag_f_assist(nb, &nb_of_char, &i);
-    if (i == nb)
+    nb = flag_f_assist(nb, &nb_of_char);
+    int_part = (int)nb;
+    if (int_part == nb)
         return my_put_nbr(nb);
-    nb_of_char += my_put_nbr(i - 1);
-    nb = nb - (i - 1);
-    i = 0;
+    nb_of_char += my_put_nbr(int_part);
+    nb -= int_part;
+    nb *= 1000000;
+    temp = nb * 10;
+    int_part = (int)nb;
+    if ((int)temp % 10 > 4)
+        int_part += 1;
     my_putchar('.');
-    while (i < 6) {
-        nb = nb * 10;
-        for (int j = 0; j < nb; j++)
-            new_nb = j;
-        nb_of_char += my_put_nbr(new_nb);
-        nb -= new_nb;
-        i++;
-    }
+    nb_of_char += my_put_nbr(int_part);
     return nb_of_char + 1;
 }
 
