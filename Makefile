@@ -11,12 +11,13 @@ SRC     =       my_putchar.c    \
                 my_printf.c     \
 		flag_funcs.c	\
 		flag_funcs2.c	\
+		flag_funcs3.c    \
 		flag_x.c	\
 		flag_xx.c	\
 		my_printf.c	\
-		functions_to_point_on.c		\
-		functions_to_point_on2.c	\
-		functions_to_point_on3.c	\
+		pointer_to_func_1.c	\
+		pointer_to_func_2.c	\
+		pointer_to_func_3.c	\
 
 OBJ	=	$(SRC:.c=.o)
 

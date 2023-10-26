@@ -9,16 +9,6 @@
 #include "include/my.h"
 #include "include/p_function.h"
 
-static void print_thegflag(va_list list, int *counter)
-{
-    (*counter) = (*counter) + flag_g(va_arg(list, double));
-}
-
-static void print_theggflag(va_list list, int *counter)
-{
-    (*counter) = (*counter) + flag_gg(va_arg(list, double));
-}
-
 void cases(char c, va_list list, int *counter)
 {
     void (*functions[])(va_list list, int *counter) =

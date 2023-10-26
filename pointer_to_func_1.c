@@ -7,6 +7,7 @@
 
 #include <stdarg.h>
 #include "include/my.h"
+#include "include/p_function.h"
 
 void print_string(va_list list, int *counter)
 {
@@ -23,4 +24,14 @@ void print_percent(va_list list, int *counter)
 {
     (*counter) = (*counter) + 1;
     my_putchar('%');
+}
+
+void print_thegflag(va_list list, int *counter)
+{
+    (*counter) = (*counter) + flag_g(va_arg(list, double));
+}
+
+void print_theggflag(va_list list, int *counter)
+{
+    (*counter) = (*counter) + flag_gg(va_arg(list, double));
 }

@@ -37,4 +37,6 @@ void print_floatP(va_list list, int *counter);
 void print_ffloatP(va_list list, int *counter);
 int flag_g(float nb);
 int flag_gg(float nb);
+int flag_e(float nb);
+int flag_ee(float nb);
 #endif /* MY_H */

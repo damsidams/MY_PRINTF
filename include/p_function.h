@@ -21,4 +21,6 @@ void print_ffloat(va_list list, int *counter);
 void print_float_e(va_list list, int *counter);
 void print_ffloat_ee(va_list list, int *counter);
 void print_int(va_list list, int *counter);
+void print_thegflag(va_list list, int *counter);
+void print_theggflag(va_list list, int *counter);
 #endif /* P_FUNCTION_H */
