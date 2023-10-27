@@ -86,6 +86,8 @@ int flag_e(float nb)
     int is_it_neg = 0;
 
     nb = is_neg(nb, &is_it_neg);
+    if (is_inf(nb))
+        return my_putstr("inf") + is_it_neg;
     while (nb > 10) {
         nb /= 10;
         base ++;
@@ -118,6 +120,8 @@ int flag_ee(float nb)
     int is_it_neg = 0;
 
     nb = is_neg(nb, &is_it_neg);
+    if (is_inf(nb))
+        return my_putstr("INF") + is_it_neg;
     while (nb > 10) {
         nb /= 10;
         base ++;

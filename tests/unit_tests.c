@@ -252,7 +252,7 @@ Test(utile, flag_F2, .init=redirect_all_stdout)
 
 Test(utile, flag_F3, .init=redirect_all_stdout)
 {
-    int res = my_printf("%s %s a neg%Ftive number: %f\n", "Test", "w!t-", 4.0, -464.1);
+    int res = my_printf("%s %s a neg%Ftive number: %F\n", "Test", "w!t-", 4.0, -464.1);
     cr_assert_eq(res, 48);
     cr_assert_stdout_eq_str("Test w!t- a neg4.000000tive number: -464.100000\n");
 }
@@ -261,6 +261,68 @@ Test(utile, flag_F4, .init=redirect_all_stdout)
 {
     double MinValue = -1.7976931348623157E+308;
     int res = my_printf("This is the first %F\n", MinValue * 10);
+    cr_assert_eq(res, 23);
+    cr_assert_stdout_eq_str("This is the first -INF\n");
+}
+
+//---------- flag e ----------------//
+
+Test(utile, flag_e1, .init=redirect_all_stdout)
+{
+    int res = my_printf("This is the first %e\n", 42.0);
+    cr_assert_eq(res, 31);
+    cr_assert_stdout_eq_str("This is the first 4.200000e+01\n");
+}
+
+Test(utile, flag_e2, .init=redirect_all_stdout)
+{
+    int res = my_printf("%s test: %e", "Another", -0.999945);
+    cr_assert_eq(res, 27);
+    cr_assert_stdout_eq_str("Another test: -9.999450e-01");
+}
+
+Test(utile, flag_e3, .init=redirect_all_stdout)
+{
+    int res = my_printf("%s %s a neg%etive number\n", "Test", "w!t-", 4.0);
+    cr_assert_eq(res, 39);
+    cr_assert_stdout_eq_str("Test w!t- a neg4.000000e+00tive number\n");
+}
+
+Test(utile, flag_e4, .init=redirect_all_stdout)
+{
+    double MinValue = -1.7976931348623157E+308;
+    int res = my_printf("This is the first %e\n", MinValue * 10);
+    cr_assert_eq(res, 23);
+    cr_assert_stdout_eq_str("This is the first -inf\n");
+}
+
+//---------- flag E ----------------//                                                                                                                                                                                                        
+
+Test(utile, flag_E1, .init=redirect_all_stdout)
+{
+    int res = my_printf("This is the first %E\n", 42.0);
+    cr_assert_eq(res, 31);
+    cr_assert_stdout_eq_str("This is the first 4.200000E+01\n");
+}
+
+Test(utile, flag_E2, .init=redirect_all_stdout)
+{
+    int res = my_printf("%s test: %E", "Another", -0.999945);
+    cr_assert_eq(res, 27);
+    cr_assert_stdout_eq_str("Another test: -9.999450E-01");
+}
+
+Test(utile, flag_E3, .init=redirect_all_stdout)
+{
+    int res = my_printf("%s %s a neg%Etive number\n", "Test", "w!t-", 4.0);
+    cr_assert_eq(res, 39);
+    cr_assert_stdout_eq_str("Test w!t- a neg4.000000E+00tive number\n");
+}
+
+Test(utile, flag_E4, .init=redirect_all_stdout)
+{
+    double MinValue = -1.7976931348623157E+308;
+    int res = my_printf("This is the first %E\n", MinValue * 10);
     cr_assert_eq(res, 23);
     cr_assert_stdout_eq_str("This is the first -INF\n");
 }
