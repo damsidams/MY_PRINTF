@@ -326,3 +326,26 @@ Test(utile, flag_E4, .init=redirect_all_stdout)
     cr_assert_eq(res, 23);
     cr_assert_stdout_eq_str("This is the first -INF\n");
 }
+
+//---------- flag g ----------------//                                                                                                                                                                                                       
+
+Test(utile, flag_g1, .init=redirect_all_stdout)
+{
+    int res = my_printf("This is the first %g\n", -25.999999999999);
+    cr_assert_eq(res, 22);
+    cr_assert_stdout_eq_str("This is the first -26\n");
+}
+
+Test(utile, flag_g2, .init=redirect_all_stdout)
+{
+    int res = my_printf("%s test: %E", "Another", -0.999945);
+    cr_assert_eq(res, 27);
+    cr_assert_stdout_eq_str("Another test: -9.999450E-01");
+}
+
+Test(utile, flag_g3, .init=redirect_all_stdout)
+{
+    int res = my_printf("%s %s a neg%Etive number\n", "Test", "w!t-", 4.0);
+    cr_assert_eq(res, 39);
+    cr_assert_stdout_eq_str("Test w!t- a neg4.000000E+00tive number\n");
+}

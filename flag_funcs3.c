@@ -39,11 +39,13 @@ int nb_size(int nb, int nb_char_print)
     return nb_char_print;
 }
 
-static int nb_digits(int nb_of_char)
+static int nb_digits(int nb_of_char, int int_part)
 {
     int nb_of_digits = 1000000;
     int i = 0;
 
+    if (int_part == 0)
+        nb_of_digits *= 10;
     while (i < nb_of_char) {
         nb_of_digits /= 10;
         i ++;
@@ -56,14 +58,14 @@ static int flag_f_no_print_zero(double nb)
 {
     int nb_of_char = 0;
     int int_part = (int)nb;
-    float temp = 0;
+    double temp = 0;
 
     if (int_part == nb)
         return my_put_nbr(nb);
     nb_of_char += my_put_nbr(int_part);
     my_putchar('.');
     nb -= int_part;
-    nb *= nb_digits(nb_of_char);
+    nb *= nb_digits(nb_of_char, int_part);
     temp = nb * 10;
     int_part = (int)nb;
     if ((int)temp % 10 > 4)
