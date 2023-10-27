@@ -38,5 +38,9 @@ void print_ffloatP(va_list list, int *counter);
 int flag_g(float nb);
 int flag_gg(float nb);
 void flag_n(int *i, int nb);
+<<<<<<< HEAD
 int flag_p(unsigned int *i);
+=======
+float is_neg(float nb, int *nb_of_char);
+>>>>>>> ac44dd904b0743c3f7efd171cc9308175db0e876
 #endif /* MY_H */

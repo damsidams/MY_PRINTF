@@ -7,7 +7,7 @@
 
 #include "include/my.h"
 
-static double is_neg(double nb, int *nb_of_char)
+static double is_neg_here(double nb, int *nb_of_char)
 {
     if (nb < 0) {
         my_putchar('-');
@@ -85,7 +85,7 @@ int flag_e(float nb)
     char pos = '+';
     int is_it_neg = 0;
 
-    nb = is_neg(nb, &is_it_neg);
+    nb = is_neg_here(nb, &is_it_neg);
     if (is_inf(nb))
         return my_putstr("inf") + is_it_neg;
     while (nb > 10) {
@@ -119,7 +119,7 @@ int flag_ee(float nb)
     char pos = '+';
     int is_it_neg = 0;
 
-    nb = is_neg(nb, &is_it_neg);
+    nb = is_neg_here(nb, &is_it_neg);
     if (is_inf(nb))
         return my_putstr("INF") + is_it_neg;
     while (nb > 10) {
