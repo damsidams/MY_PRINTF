@@ -14,11 +14,14 @@ SRC     =       my_putchar.c    \
 		flag_funcs3.c    \
 		flag_x.c	\
 		flag_xx.c	\
-		my_printf.c	\
 		pointer_to_func_1.c	\
 		pointer_to_func_2.c	\
 		pointer_to_func_3.c	\
 		pointer_to_func_4.c	\
+
+TEST	=	tests/unit_tests.c
+
+CFLAGS	=	--coverage -lcriterion
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -27,6 +30,11 @@ NAME	=	libmy.a
 LIB	=	/include/
 
 LIBNAME	=	my.h
+
+tests_run:
+	gcc $(SRC) $(TEST) $(CFLAGS)
+	./a.out
+
 
 all:	$(NAME)
 
