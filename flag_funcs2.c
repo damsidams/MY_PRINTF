@@ -59,3 +59,9 @@ void flag_n(int *i, int nb)
 {
     *i = nb;
 }
+
+int flag_p(unsigned int *i)
+{
+    my_putstr("0x7fff");
+    return flag_x((unsigned int)i);
+}

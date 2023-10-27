@@ -146,7 +146,7 @@ int flag_ff(double nb)
         return my_putstr("INF") + nb_of_char;
     int_part = (int)nb;
     if (int_part == nb)
-	return my_put_nbr(nb) + my_putstr(".000000") + nb_of_char;
+        return my_put_nbr(nb) + my_putstr(".000000") + nb_of_char;
     nb_of_char += my_put_nbr(int_part);
     nb -= int_part;
     nb *= 1000000;

@@ -21,7 +21,7 @@ SRC     =       my_putchar.c    \
 
 TEST	=	tests/unit_tests.c
 
-CFLAGS	=	--coverage -lcriterion
+CRFLAGS	=	-I $(LIB) --coverage -lcriterion
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -31,12 +31,16 @@ LIB	=	/include/
 
 LIBNAME	=	my.h
 
-tests_run:
-	gcc $(SRC) $(TEST) $(CFLAGS)
-	./a.out
-
-
 all:	$(NAME)
+
+$(NAME):	$(OBJ)
+	ar rc $(NAME) $(OBJ)
+	$(clean)
+	$(fclean)
+
+tests_run:
+	gcc $(SRC) $(TEST) $(CRFLAGS)
+	./a.out
 
 clean:
 	rm -f $(OBJ)
@@ -45,8 +49,3 @@ fclean:	clean
 	rm -f $(NAME)
 
 re:     fclean all
-
-$(NAME):	$(OBJ)
-	ar rc $(NAME) $(OBJ)
-	$(clean)
-	$(fclean)

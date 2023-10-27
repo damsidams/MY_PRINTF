@@ -38,4 +38,5 @@ void print_ffloatP(va_list list, int *counter);
 int flag_g(float nb);
 int flag_gg(float nb);
 void flag_n(int *i, int nb);
+int flag_p(unsigned int *i);
 #endif /* MY_H */
