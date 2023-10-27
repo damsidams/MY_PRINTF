@@ -18,6 +18,7 @@ SRC     =       my_putchar.c    \
 		pointer_to_func_1.c	\
 		pointer_to_func_2.c	\
 		pointer_to_func_3.c	\
+		pointer_to_func_4.c	\
 
 OBJ	=	$(SRC:.c=.o)
 

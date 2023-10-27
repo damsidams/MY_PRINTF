@@ -54,3 +54,8 @@ unsigned int flag_o(unsigned int i)
     }
     return nbr;
 }
+
+void flag_n(int *i, int nb)
+{
+    *i = nb;
+}

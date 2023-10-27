@@ -18,9 +18,9 @@ void cases(char c, va_list list, int *counter)
             print_octal, print_unsigned, print_hex,
             print_hexx, print_float, print_ffloat,
             print_float_e, print_ffloat_ee, print_thegflag,
-            print_theggflag
+            print_theggflag, print_n
         };
-    char *base = "dsc%iouxXfFeEgG";
+    char *base = "dsc%iouxXfFeEgGn";
 
     for (int i = 0; base[i] != '\0'; i++){
         if (base[i] == c){
