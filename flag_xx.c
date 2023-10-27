@@ -47,12 +47,19 @@ unsigned int flag_xx(unsigned int i)
     unsigned int quot = 0;
     unsigned int count = 0;
     unsigned int nbr = 0;
+    unsigned int digits[32];
 
-    if (i == 0)
-        return 0;
-    rest = i % 16;
-    quot = (i - quot) / 16;
-    nbr += 1 + flag_xx(quot);
-    print_part1(rest);
+    if (i == 0){
+        my_put_nbr(i);
+        return 1;
+    }
+    while (i > 0){
+        digits[nbr] = i % 16;
+        i = i / 16;
+        nbr += 1;
+    }
+    for (int j = nbr - 1; j >= 0; j--){
+        print_part1(digits[j]);
+    }
     return nbr;
 }
