@@ -12,3 +12,13 @@ void print_n(va_list list, int *counter)
 {
     flag_n(va_arg(list, int *), (*counter));
 }
+
+void print_a(va_list list, int *counter)
+{
+    flag_a(va_arg(list, int));
+}
+
+void print_aa(va_list list, int *counter)
+{
+    flag_aa(va_arg(list, int));
+}

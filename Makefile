@@ -11,7 +11,8 @@ SRC     =       my_putchar.c    \
                 my_printf.c     \
 		flag_funcs.c	\
 		flag_funcs2.c	\
-		flag_funcs3.c    \
+		flag_funcs3.c	\
+		flag_funcs4.c	\
 		flag_x.c	\
 		flag_xx.c	\
 		pointer_to_func_1.c	\

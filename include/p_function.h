@@ -25,4 +25,6 @@ void print_thegflag(va_list list, int *counter);
 void print_theggflag(va_list list, int *counter);
 void print_n(va_list list, int *counter);
 void print_pointer(va_list list, int *counter);
+void print_a(va_list list, int *counter);
+void print_aa(va_list list, int *counter);
 #endif /* P_FUNCTION_H */

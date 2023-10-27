@@ -53,6 +53,6 @@ int my_put_nbr_base(int nb, int base)
         nb = nb * -1;
         nb_char_print ++;
     }
-    print_nb(nb, &nb_char_print, base);
+    print_nb_base(nb, &nb_char_print, base);
     return nb_char_print;
 }
