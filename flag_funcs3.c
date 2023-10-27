@@ -153,7 +153,7 @@ int flag_g(float nb)
     }
     if (is_inf(nb))
         return my_putstr("inf") + nb_of_char;
-    if (nb_size((int)nb, 0) < 6)
+    if (nb_size((int)nb, 0) <= 6)
         return flag_f_no_print_zero(nb) + nb_of_char;
     return flag_e_for_g(nb) + nb_of_char;
 }
@@ -169,7 +169,7 @@ int flag_gg(float nb)
     }
     if (is_inf(nb))
         return my_putstr("INF") + nb_of_char;
-    if (nb_size((int)nb, 0) < 6)
+    if (nb_size((int)nb, 0) <= 6)
         return flag_f_no_print_zero(nb) + nb_of_char;
     return flag_ee_for_gg(nb) + nb_of_char;
 }
