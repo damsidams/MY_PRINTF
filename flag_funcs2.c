@@ -59,3 +59,13 @@ void flag_n(int *i, int nb)
 {
     *i = nb;
 }
+
+float is_neg(float nb, int *nb_of_char)
+{
+    if (nb < 0) {
+        my_putchar('-');
+        nb *= -1;
+        *nb_of_char += 1;
+    }
+    return nb;
+}

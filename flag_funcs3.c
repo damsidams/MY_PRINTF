@@ -8,16 +8,6 @@
 
 #include "include/my.h"
 
-static float is_neg(float nb, int *nb_of_char)
-{
-    if (nb < 0) {
-        my_putchar('-');
-        nb *= -1;
-        *nb_of_char += 1;
-    }
-    return nb;
-}
-
 static int is_inf(double nb)
 {
     double MaxValue = 1.7976931348623157E+308;
