@@ -202,3 +202,26 @@ Test(utile, flag_X2, .init=redirect_all_stdout)
     cr_assert_eq(res, 15);
     cr_assert_stdout_eq_str("Another test: 0");
 }
+
+//----------- flag f ----------------//
+
+Test(utile, flag_f, .init=redirect_all_stdout)
+{
+    int res = my_printf("This is the first %i\n", 42);
+    cr_assert_eq(res, 21);
+    cr_assert_stdout_eq_str("This is the first 42\n");
+}
+
+Test(utile, flag_f2, .init=redirect_all_stdout)
+{
+    int res = my_printf("%s test: %f", "Another", 78.9999999);
+    cr_assert_eq(res, 23);
+    cr_assert_stdout_eq_str("Another test: 79.000000");
+}
+
+Test(utile, flag_f3, .init=redirect_all_stdout)
+{
+    int res = my_printf("%s %s a neg%ftive number: %f\n", "Test", "w!t-", 4.0, -464.1);
+    cr_assert_eq(res, 48);
+    cr_assert_stdout_eq_str("Test w!t- a neg4.000000tive number: -464.100000\n");
+}
