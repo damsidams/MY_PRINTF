@@ -18,6 +18,15 @@ static float is_neg(float nb, int *nb_of_char)
     return nb;
 }
 
+static int is_inf(double nb)
+{
+    double MaxValue = 1.7976931348623157E+308;
+
+    if (nb >= MaxValue * 10)
+        return 1;
+    return 0;
+}
+
 int nb_size(int nb, int nb_char_print)
 {
     if (nb < 0) {
@@ -140,6 +149,8 @@ int flag_g(float nb)
         nb_of_char ++;
         nb *= -1;
     }
+    if (is_inf(nb))
+        return my_putstr("inf") + nb_of_char;
     if (nb_size((int)nb, 0) < 6)
         return flag_f_no_print_zero(nb) + nb_of_char;
     return flag_e_for_g(nb) + nb_of_char;
@@ -154,6 +165,8 @@ int flag_gg(float nb)
         nb_of_char ++;
         nb *= -1;
     }
+    if (is_inf(nb))
+        return my_putstr("INF") + nb_of_char;
     if (nb_size((int)nb, 0) < 6)
         return flag_f_no_print_zero(nb) + nb_of_char;
     return flag_ee_for_gg(nb) + nb_of_char;

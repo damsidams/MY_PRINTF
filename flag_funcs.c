@@ -7,7 +7,7 @@
 
 #include "include/my.h"
 
-static float is_neg(double nb, int *nb_of_char)
+static double is_neg(double nb, int *nb_of_char)
 {
     if (nb < 0) {
         my_putchar('-');
@@ -27,6 +27,15 @@ static float flag_f_assist(float nb, int *nb_of_char)
     return nb;
 }
 
+static int is_inf(double nb)
+{
+    double MaxValue = 1.7976931348623157E+308;
+
+    if (nb >= MaxValue * 10)
+        return 1;
+    return 0;
+}
+
 /*handle the float flag*/
 int flag_f(double nb)
 {
@@ -35,9 +44,11 @@ int flag_f(double nb)
     double temp = 0;
 
     nb = flag_f_assist(nb, &nb_of_char);
+    if (is_inf(nb))
+        return my_putstr("inf") + nb_of_char;
     int_part = (int)nb;
     if (int_part == nb)
-        return my_put_nbr(nb);
+        return my_put_nbr(nb) + my_putstr(".000000") + nb_of_char;
     nb_of_char += my_put_nbr(int_part);
     nb -= int_part;
     nb *= 1000000;
@@ -75,6 +86,8 @@ int flag_e(float nb)
     int is_it_neg = 0;
 
     nb = is_neg(nb, &is_it_neg);
+    if (is_inf(nb))
+        return my_putstr("inf") + is_it_neg;
     while (nb > 10) {
         nb /= 10;
         base ++;
@@ -107,6 +120,8 @@ int flag_ee(float nb)
     int is_it_neg = 0;
 
     nb = is_neg(nb, &is_it_neg);
+    if (is_inf(nb))
+        return my_putstr("INF") + is_it_neg;
     while (nb > 10) {
         nb /= 10;
         base ++;
@@ -124,12 +139,14 @@ int flag_ff(double nb)
 {
     int nb_of_char = 0;
     int int_part = (int)nb;
-    float temp = 0;
+    double temp = 0;
 
     nb = flag_f_assist(nb, &nb_of_char);
+    if (is_inf(nb))
+        return my_putstr("INF") + nb_of_char;
     int_part = (int)nb;
     if (int_part == nb)
-        return my_put_nbr(nb);
+	return my_put_nbr(nb) + my_putstr(".000000") + nb_of_char;
     nb_of_char += my_put_nbr(int_part);
     nb -= int_part;
     nb *= 1000000;
@@ -141,5 +158,6 @@ int flag_ff(double nb)
     nb_of_char += my_put_nbr(int_part);
     return nb_of_char + 1;
 }
+
 
 /*full of non-static functions*/
