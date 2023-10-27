@@ -138,6 +138,8 @@ int flag_ff(double nb)
     float temp = 0;
 
     nb = flag_f_assist(nb, &nb_of_char);
+    if (is_inf(nb))
+        return my_putstr("INF") + nb_of_char;
     int_part = (int)nb;
     if (int_part == nb)
         return my_put_nbr(nb);
