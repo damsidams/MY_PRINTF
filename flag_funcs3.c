@@ -8,15 +8,6 @@
 
 #include "include/my.h"
 
-static int is_inf(double nb)
-{
-    double MaxValue = 1.7976931348623157E+308;
-
-    if (nb >= MaxValue * 10)
-        return 1;
-    return 0;
-}
-
 int nb_size(int nb, int nb_char_print)
 {
     if (nb < 0) {

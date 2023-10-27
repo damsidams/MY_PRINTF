@@ -27,15 +27,6 @@ static float flag_f_assist(float nb, int *nb_of_char)
     return nb;
 }
 
-static int is_inf(double nb)
-{
-    double MaxValue = 1.7976931348623157E+308;
-
-    if (nb >= MaxValue * 10)
-        return 1;
-    return 0;
-}
-
 /*handle the float flag*/
 int flag_f(double nb)
 {
