@@ -47,6 +47,6 @@ clean:
 	rm -f $(OBJ)
 
 fclean:	clean
-	rm -f $(NAME)
+	rm -f $(NAME) *.gcda *.gcno *~ *.o
 
 re:     fclean all

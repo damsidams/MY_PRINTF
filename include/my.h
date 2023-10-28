@@ -42,6 +42,6 @@ void flag_n(int *i, int nb);
 int flag_p(unsigned int *i);
 int flag_a(double nb);
 int flag_aa(double nb);
-float is_neg(float nb, int *nb_of_char);
+double is_neg(double nb, int *nb_of_char);
 int is_inf(double nb);
 #endif /* MY_H */

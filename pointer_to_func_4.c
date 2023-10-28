@@ -15,10 +15,10 @@ void print_n(va_list list, int *counter)
 
 void print_a(va_list list, int *counter)
 {
-    flag_a(va_arg(list, int));
+    flag_a(va_arg(list, double));
 }
 
 void print_aa(va_list list, int *counter)
 {
-    flag_aa(va_arg(list, int));
+    flag_aa(va_arg(list, double));
 }

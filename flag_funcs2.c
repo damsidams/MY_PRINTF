@@ -66,7 +66,7 @@ int flag_p(unsigned int *i)
     return flag_x((unsigned int)i);
 }
 
-float is_neg(float nb, int *nb_of_char)
+double is_neg(double nb, int *nb_of_char)
 {
     if (nb < 0) {
         my_putchar('-');
