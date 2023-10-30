@@ -63,7 +63,7 @@ void flag_n(int *i, int nb)
 unsigned int flag_p(int *i)
 {
     my_putstr("0x7fff");
-    return flag_x(i);
+    return flag_x((unsigned int)i);
 }
 
 double is_neg(double nb, int *nb_of_char)

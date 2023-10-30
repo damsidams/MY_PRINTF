@@ -12,7 +12,7 @@ int is_inf(double nb)
     double MaxValue = 1.7976931348623157E+308;
 
     if (nb >= MaxValue * 10)
-	return 1;
+        return 1;
     return 0;
 }
 
@@ -23,7 +23,7 @@ static void print_nb_base(int nb, int *nb_char_print, int base)
         '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     if (nb / base > 0)
-	print_nb_base(nb / base, nb_char_print, base);
+        print_nb_base(nb / base, nb_char_print, base);
     res = array[nb % base];
     my_putchar(res);
     *nb_char_print += 1;
@@ -83,7 +83,6 @@ static int flag_a_printer(float nb, char pos, int base)
     return nb_of_char;
 }
 
-
 int flag_a(double nb)
 {
     int base = 0;
@@ -102,7 +101,7 @@ int flag_a(double nb)
     while (nb < 1) {
         pos = '-';
         nb *= 10;
-	base ++;
+        base ++;
     }
     return my_putstr("0x") + flag_a_printer(nb, pos, base) + 4 + is_it_neg;
 }
@@ -130,7 +129,7 @@ static int flag_aa_float(double nb)
 
 static int flag_aa_printer(float nb, char pos, int base)
 {
-    int nb_of_char = 0;                                                                                                                                                                                                                      
+    int nb_of_char = 0;
 
     nb_of_char = flag_aa_float(nb);
     my_putchar('P');

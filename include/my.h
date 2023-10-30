@@ -12,7 +12,7 @@
 int my_printf(const char *format, ...);
 int my_put_nbr(int nb);
 int my_put_nbr_base(int nb, int base);
-void my_putchar(char c);
+int my_putchar(char c);
 int my_putstr(char const *str);
 int flag_f(double nb);
 int flag_ff(double nb);
