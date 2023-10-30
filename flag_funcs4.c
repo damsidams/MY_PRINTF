@@ -97,7 +97,7 @@ int flag_a(double nb)
 
     nb = is_neg(nb, &is_it_neg);
     if (nb == 0)
-        return my_putstr("0xp0p+0") + is_it_neg;
+        return my_putstr("0x0p+0") + is_it_neg;
     if (is_inf(nb))
         return my_putstr("inf") + is_it_neg;
     while (nb > 10) {
