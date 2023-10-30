@@ -33,11 +33,6 @@ static int my_put_nbr_base_capa(int nb, int base)
 {
     int nb_char_print = 0;
 
-    if (nb < 0) {
-        my_putchar('-');
-        nb = nb * -1;
-        nb_char_print ++;
-    }
     print_nb_base(nb, &nb_char_print, base);
     return nb_char_print;
 }
@@ -119,8 +114,8 @@ static int flag_aa_float(double nb)
     double temp = 0;
 
     if (int_part == nb)
-        return my_put_nbr_base(nb, 16);
-    nb_of_char += my_put_nbr_base(int_part, 16);
+        return my_put_nbr_base_capa(nb, 16);
+    nb_of_char += my_put_nbr_base_capa(int_part, 16);
     my_putchar('.');
     nb -= int_part;
     nb *= nb_digits(nb_of_char, int_part);
@@ -129,7 +124,7 @@ static int flag_aa_float(double nb)
         int_part += 1;
     while (int_part % 10 == 0)
         int_part /= 10;
-    nb_of_char += my_put_nbr_base(int_part, 16);
+    nb_of_char += my_put_nbr_base_capa(int_part, 16);
     return nb_of_char + 1;
 }
 
@@ -137,7 +132,7 @@ static int flag_aa_printer(float nb, char pos, int base)
 {
     int nb_of_char = 0;                                                                                                                                                                                                                      
 
-    nb_of_char = flag_a_float(nb);
+    nb_of_char = flag_aa_float(nb);
     my_putchar('P');
     my_putchar(pos);
     my_put_nbr(base);
