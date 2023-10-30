@@ -30,5 +30,5 @@ void print_hexx(va_list list, int *counter)
 
 void print_pointer(va_list list, int *counter)
 {
-    (*counter) = (*counter) + flag_p(va_arg(list, unsigned int));
+    (*counter) = (*counter) + flag_p(va_arg(list, int *));
 }

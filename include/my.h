@@ -39,7 +39,7 @@ void print_ffloatP(va_list list, int *counter);
 int flag_g(float nb);
 int flag_gg(float nb);
 void flag_n(int *i, int nb);
-int flag_p(unsigned int *i);
+unsigned int flag_p(int *i);
 int flag_a(double nb);
 int flag_aa(double nb);
 double is_neg(double nb, int *nb_of_char);
