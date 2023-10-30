@@ -523,3 +523,23 @@ Test(utile, flag_A4, .init=redirect_all_stdout)
     cr_assert_eq(res, 23);
     cr_assert_stdout_eq_str("This is the first -inf\n");
 }
+
+//---------- flag p ----------------//
+
+Test(utile, flag_p, .init=redirect_all_stdout)
+{
+    int x = 50;
+    int res = my_printf("This is the first %p\n", x);
+    cr_assert_stdout_eq_str("This is the first ");
+    my_put_nbr(&x);
+    my_putchar('\n');
+}
+
+//---------- flag n ----------------//
+
+Test(utile, flag_n, .init=redirect_all_stdout)
+{
+    int x;
+    int res = my_printf("this is a flag%n n test", &x);
+    cr_assert_eq(x, 14);
+}
