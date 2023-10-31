@@ -12,10 +12,10 @@
 int print_string(va_list list, char char_flag, int bp, int ap);
 int print_char(va_list list, char char_flag, int bp, int ap);
 int print_percent(va_list list, char char_flag, int bp, int ap);
-void print_octal(va_list list, int *counter);
-void print_unsigned(va_list list, int *counter);
-void print_hex(va_list list, int *counter);
-void print_hexx(va_list list, int *counter);
+int print_octal(va_list list, char char_flag, int bp, int ap);
+int print_unsigned(va_list list, char char_flag, int bp, int ap);
+int print_hex(va_list list, char char_flag, int bp, int ap);
+int print_hexx(va_list list, char char_flag, int bp, int ap);
 int print_float(va_list list, char char_flag, int bp, int ap);
 int print_ffloat(va_list list, char char_flag, int bp, int ap);
 int print_float_e(va_list list, char char_flag, int bp, int ap);
