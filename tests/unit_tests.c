@@ -546,28 +546,28 @@ Test(utile, flag_n, .init=redirect_all_stdout)
 
 //------------ flag - ------------//
 
-Test(utile, flag_-1, .init=redirect_all_stdout)
+Test(utile, flag_minus1, .init=redirect_all_stdout)
 {
     int res = my_printf("This is the: %-20f, %s", 789.16, "Hello");
     cr_assert_eq(res, 40);
     cr_assert_stdout_eq_str("This is the: 789.160000          , Hello");
 }
 
-Test(utile, flag_-2, .init=redirect_all_stdout)
+Test(utile, flag_minus2, .init=redirect_all_stdout)
 {
     int res = my_printf("What is the: %-0f, %s", 789.16, "Hello");
     cr_assert_eq(res, 30);
     cr_assert_stdout_eq_str("What is the: 789.160000, Hello");
 }
 
-Test(utile, flag_-3, .init=redirect_all_stdout)
+Test(utile, flag_minus3, .init=redirect_all_stdout)
 {
     int res = my_printf("%s %s a neg%Etive number\n", "Test", "w!t-", 4.0);
     cr_assert_eq(res, 39);
     cr_assert_stdout_eq_str("Test w!t- a neg4.000000E+00tive number\n");
 }
 
-Test(utile, flag_-4, .init=redirect_all_stdout)
+Test(utile, flag_minus4, .init=redirect_all_stdout)
 {
     double MinValue = -1.7976931348623157E+308;
     int res = my_printf("This is the first %E\n", MinValue * 10);
