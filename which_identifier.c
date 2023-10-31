@@ -5,7 +5,7 @@
 ** File to run the flag characters
 */
 
-int which_char_flag(char char_flag, char normal_flag)
+int choose_cflag(char char_flag, char normal_flag)
 {
     char *flags = "0+ #-";
     int i = 0;

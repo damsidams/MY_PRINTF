@@ -77,7 +77,8 @@ int flag_minus_double(double nb, char flag, int size)
     if (size_word >= size)
         return flag_f(nb);
     nb_of_char = flag_f(nb);
-    for (int i = size_word; i < size; i++)
+    for (int i = size_word; i < size; i++) {
         nb_of_char += my_putchar(' ');
+    }
     return nb_of_char;
 }
