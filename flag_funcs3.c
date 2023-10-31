@@ -57,7 +57,7 @@ static int flag_f_no_print_zero(double nb)
     return nb_of_char + 1;
 }
 
-static int flag_e_printer(float nb, char pos, int base)
+static int flag_e_printer(double nb, char pos, int base)
 {
     int nb_of_char = 0;
 
@@ -70,7 +70,7 @@ static int flag_e_printer(float nb, char pos, int base)
     return nb_of_char;
 }
 
-static int flag_e_for_g(float nb)
+static int flag_e_for_g(double nb)
 {
     int base = 0;
     char pos = '+';
@@ -89,7 +89,7 @@ static int flag_e_for_g(float nb)
     return flag_e_printer(nb, pos, base) + 4 + is_it_neg;
 }
 
-static int flag_ee_printer(float nb, char pos, int base)
+static int flag_ee_printer(double nb, char pos, int base)
 {
     int nb_of_char = 0;
 
@@ -102,7 +102,7 @@ static int flag_ee_printer(float nb, char pos, int base)
     return nb_of_char;
 }
 
-static int flag_ee_for_gg(float nb)
+static int flag_ee_for_gg(double nb)
 {
     int base = 0;
     char pos = '+';
@@ -123,7 +123,7 @@ static int flag_ee_for_gg(float nb)
 
 //looks like the e prints only the int part + 4 digits
 // everytime except when there are zeros
-int flag_g(float nb)
+int flag_g(double nb)
 {
     int nb_of_char = 0;
 
@@ -139,7 +139,7 @@ int flag_g(float nb)
     return flag_e_for_g(nb) + nb_of_char;
 }
 
-int flag_gg(float nb)
+int flag_gg(double nb)
 {
     int nb_of_char = 0;
 
