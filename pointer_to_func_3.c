@@ -28,7 +28,7 @@ void print_hexx(va_list list, int *counter)
     (*counter) = (*counter) + flag_xx(va_arg(list, unsigned int));
 }
 
-int print_pointer(va_list list, char char_flag, int bprecison, int afprecision)
+int print_pointer(va_list list, char char_flag, int bp, int ap)
 {
     return flag_p(va_arg(list, int *));
 }

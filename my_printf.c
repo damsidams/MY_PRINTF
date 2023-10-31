@@ -77,18 +77,18 @@ int my_printf(const char *format, ...)
 {
     va_list list;
     int counter;
-    char next_letter = *format;
+    char next_letter = *(format) + 1;
 
     va_start(list, format);
     while (*format){
-        next_letter = (*format) + 1;
+        next_letter = *(format) + 1;
         if (*format == '%' && next_letter != '\0'){
             format_identifiers(format, list, &counter);
         } else {
             counter += my_putchar(*format);
         }
-        if (next_letter != '\0')
-            format++;
+//        if (next_letter != '\0')
+        format++;
     }
     va_end(list);
     return counter;

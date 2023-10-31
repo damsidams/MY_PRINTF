@@ -31,15 +31,20 @@ static int nb_size_float(double nb)
 
 int flag_hashtag(double nb, char flag, int size)
 {
-    switch(flag)
-    {
+    int nb_of_char = 0;
+
+    switch (flag) {
     case 'o':
-        return my_putchar('0');
+        nb_of_char = my_putchar('0');
+        break;
     case 'x':
-         return my_putstr("0x");
+        nb_of_char = my_putstr("0x");
+        break;
     case 'X':
-	return my_putstr("0X");
+        nb_of_char = my_putstr("0X");
+        break;
     }
+    return nb_of_char;
 }
 
 int flag_plus(double nb, char flag, int size)
