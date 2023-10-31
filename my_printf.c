@@ -9,7 +9,7 @@
 #include "include/my.h"
 #include "include/p_function.h"
 
-static print_noflag(void)
+static print_noflag(char c)
 {
     my_putchar('%');
     my_putchar(c);
@@ -35,7 +35,7 @@ static int cases(char c, va_list list, char identifier, int *precisions)
                                 precisions[0], precisions[1]);
         }
     }
-    print_noflag;
+    print_noflag(c);
     return 2;
 }
 
