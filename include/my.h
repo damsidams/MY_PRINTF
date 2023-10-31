@@ -40,4 +40,5 @@ int flag_blank(double nb, char flag, int size);
 int flag_minus_int(double nb, char flag, int size);
 int flag_minus_double(double nb, char flag, int size);
 int which_char_flag(char char_flag, char normal_flag);
+int my_char_isnum(char const c);
 #endif /* MY_H */
