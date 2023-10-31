@@ -17,7 +17,7 @@ static double is_neg_here(double nb, int *nb_of_char)
     return nb;
 }
 
-static float flag_f_assist(float nb, int *nb_of_char)
+static double flag_f_assist(double nb, int *nb_of_char)
 {
     if (nb < 0) {
         my_putchar('-');
@@ -57,7 +57,7 @@ int flag_s(char *str)
     return my_putstr(str);
 }
 
-static int flag_e_printer(float nb, char pos, int base)
+static int flag_e_printer(double nb, char pos, int base)
 {
     int nb_of_char = 0;
 
@@ -70,7 +70,7 @@ static int flag_e_printer(float nb, char pos, int base)
     return nb_of_char;
 }
 
-int flag_e(float nb)
+int flag_e(double nb)
 {
     int	base = 0;
     char pos = '+';
@@ -91,7 +91,7 @@ int flag_e(float nb)
     return flag_e_printer(nb, pos, base) + 4 + is_it_neg;
 }
 
-static int flag_ee_printer(float nb, char pos, int base)
+static int flag_ee_printer(double nb, char pos, int base)
 {
     int nb_of_char = 0;
 
@@ -104,7 +104,7 @@ static int flag_ee_printer(float nb, char pos, int base)
     return nb_of_char;
 }
 
-int flag_ee(float nb)
+int flag_ee(double nb)
 {
     int base = 0;
     char pos = '+';
