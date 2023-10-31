@@ -14,13 +14,13 @@ int print_octal(va_list list, char char_flag, int bp, int ap)
     int nb_of_char = 0;
 
     if (char_flag == '#')
-	nb_of_char = flag_hashtag((double)arg, 'o', bp);
+        nb_of_char = flag_hashtag((double)arg, 'o', bp);
     if (char_flag == '-') {
         nb_of_char += flag_o(arg);
         for (int i = nb_of_char; i < bp; i++)
             nb_of_char += my_putchar(' ');
         return nb_of_char;
-    } 
+    }
     return flag_o(arg);
 }
 
@@ -60,12 +60,12 @@ int print_hexx(va_list list, char char_flag, int bp, int ap)
     int nb_of_char = 0;
 
     if (char_flag == '#')
-	nb_of_char = flag_hashtag((double)arg, 'X', bp);
+        nb_of_char = flag_hashtag((double)arg, 'X', bp);
     if (char_flag == '-') {
-	nb_of_char += flag_xx(arg);
-	for (int i = nb_of_char; i < bp; i++)
+        nb_of_char += flag_xx(arg);
+        for (int i = nb_of_char; i < bp; i++)
             nb_of_char += my_putchar(' ');
-	return nb_of_char;
+        return nb_of_char;
     }
     return flag_xx(arg);
 }
