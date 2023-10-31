@@ -9,12 +9,16 @@
 #include "include/my.h"
 #include "include/p_function.h"
 
+static print_noflag(char c)
+{
+    my_putchar('%');
+    my_putchar(c);
+}
+
 static int cases(char c, va_list list, char identifier, int *precisions)
 {
-    printf("The Flag is : %c\n", c);
-    printf("The Identifier is : %c\n", identifier);
-    printf("The Precision is : %d.%d\n", precisions[0], precisions[1]);
-    int (*functions[])(va_list list, char identifier, int precisions1, int precisions2) =
+    int (*functions[])
+        (va_list list, char identifier, int precisions1, int precisions2) =
         {
             print_int, print_string,
             print_char, print_percent, print_int,
@@ -27,15 +31,16 @@ static int cases(char c, va_list list, char identifier, int *precisions)
 
     for (int i = 0; base[i] != '\0'; i++){
         if (base[i] == c){
-            return functions[i](list, identifier, precisions[0], precisions[1]);
+            return functions[i](list, identifier,
+                                precisions[0], precisions[1]);
         }
     }
-    my_putchar('%');
-    my_putchar(c);
+    print_noflag(c);
     return 2;
 }
 
-static int precisions(const char *c, va_list list, int *counter, char identifier)
+static int precisions
+(const char *c, va_list list, int *counter, char identifier)
 {
     int res[2];
 
@@ -78,13 +83,12 @@ int my_printf(const char *format, ...)
     while (*format){
         next_letter = (*format) + 1;
         if (*format == '%' && next_letter != '\0'){
-            format++;
             format_identifiers(format, list, &counter);
-            //cases(*format, list, &counter);
         } else {
             counter += my_putchar(*format);
         }
-        format++;
+        if (next_letter != '\0')
+            format++;
     }
     va_end(list);
     return counter;
