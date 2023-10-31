@@ -20,6 +20,9 @@ SRC     =       my_putchar.c    \
 		pointer_to_func_3.c	\
 		pointer_to_func_4.c	\
 		my_char_isnum.c	\
+		flag_char.c	\
+		which_identifier.c	\
+		my_strlen.c	\
 
 TEST	=	tests/unit_tests.c
 
