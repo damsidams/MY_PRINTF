@@ -8,8 +8,8 @@
 int my_strlen(char const *str)
 {
     int i = 0;
-    
-    while(str[i])
+
+    while (str[i])
         i++;
     return i;
 }
