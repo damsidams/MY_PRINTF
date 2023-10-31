@@ -100,6 +100,7 @@ int my_printf(const char *format, ...)
             counter += my_putchar(*format);
         if (format != '\0')
             format += flag_count;
+        flag_count = 1;
     }
     va_end(list);
     return counter;
