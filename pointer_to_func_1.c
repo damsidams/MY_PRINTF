@@ -75,5 +75,5 @@ int print_theggflag(va_list list, char char_flag, int bp, int ap)
         nb_of_char += f_char[choose_cflag(char_flag, flag)](arg, flag, bp);
     if (char_flag == '-')
         return nb_of_char;
-    return nb_of_char + flag_g(arg);
+    return nb_of_char + flag_gg(arg);
 }
