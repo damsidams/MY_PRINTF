@@ -78,8 +78,6 @@ static int format_identifiers
         }
     }
     flag_count = precisions(c, list, counter, 0);
-    if (flag_count == 0)
-        return 1;
     return flag_count;
 }
 
