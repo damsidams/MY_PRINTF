@@ -96,9 +96,8 @@ int my_printf(const char *format, ...)
         if (*format == '%' && next_letter != '\0'){
             format++;
             flag_count += format_identifiers(format, list, &counter);
-        } else {
+        } else
             counter += my_putchar(*format);
-        }
         if (format != '\0')
             format += flag_count;
     }
