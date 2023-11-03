@@ -84,7 +84,7 @@ static int format_identifiers
 int my_printf(const char *format, ...)
 {
     va_list list;
-    int counter;
+    int counter = 0;
     char next_letter = *(format + 1);
     int flag_count = 1;
 
