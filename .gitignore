@@ -1,0 +1,17 @@
+*.o
+*.a
+*.so
+*~
+binary/
+temp/
+obj/
+main.c
+*.out
+*#
+*.log
+*.gcda
+*.gcno
+*.sh
+unit*
+*.o
+tests/
